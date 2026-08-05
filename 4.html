@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Marks Calculator</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:grey;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:350px;
+    background:skyblue;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+h2{
+    text-align:center;
+    color:dodgerblack;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    margin:8px 0;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:blue;
+    background:green;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+   background:orange;
+}
+
+#result{
+    margin-top:15px;
+    font-weight:Elephant;
+    color:dodgerblack;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Student Marks Calculator</h2>
+
+<input type="text" id="name" placeholder="Enter Student Name">
+
+<input type="number" id="sub1" placeholder="Subject 1 Marks">
+<input type="number" id="sub2" placeholder="Subject 2 Marks">
+<input type="number" id="sub3" placeholder="Subject 3 Marks">
+<input type="number" id="sub4" placeholder="Subject 4 Marks">
+<input type="number" id="sub5" placeholder="Subject 5 Marks">
+<input type="number" id="sub6" placeholder="Subject 6 Marks">
+<button onclick="calculate()">Calculate Result</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+function calculate(){
+
+let name=document.getElementById("name").value;
+
+let s1=Number(document.getElementById("sub1").value);
+let s2=Number(document.getElementById("sub2").value);
+let s3=Number(document.getElementById("sub3").value);
+let s4=Number(document.getElementById("sub4").value);
+let s5=Number(document.getElementById("sub5").value);
+let s6=Number(document.getElementById("sub6").value);
+let total=s1+s2+s3+s4+s5+s6;
+let average=total/6;
+
+let grade;
+
+if(average>=90){
+    grade="A+";
+}
+else if(average>=75){
+    grade="A";
+}
+else if(average>=60){
+    grade="B";
+}
+else if(average>=40){
+    grade="C";
+}
+else{
+    grade="Fail";
+}
+
+document.getElementById("result").innerHTML=
+"<p>Name: "+name+"</p>"+
+"<p>Total: "+total+"</p>"+
+"<p>Average: "+average.toFixed(2)+"</p>"+
+"<p>Grade: "+grade+"</p>";
+
+}
+</script>
+
+</body>
+</html>
